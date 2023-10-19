@@ -34,4 +34,20 @@ public class JobTest {
         assertFalse(test1.getId() == test2.getId() );
     }
 
-}
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        // Create a Job object with specific data (for testing the toString method).
+        Job job = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField(){
+        Job testJob = new Job("Product tester", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
+        String text = testJob.toString();
+        assertTrue(text.contains("Data not available"));
+    }
+
+    }
